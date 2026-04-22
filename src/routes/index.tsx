@@ -55,15 +55,15 @@ function HeroSection() {
               acompanhamento personalizado. Aprenda no seu ritmo.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/register">
+              <Link to="/courses">
                 <Button variant="gold" size="xl">
-                  Começar Agora
+                  Inscrever-se num Curso
                   <ArrowRight className="h-5 w-5" />
                 </Button>
               </Link>
-              <Link to="/courses">
+              <Link to="/payment">
                 <Button variant="hero-outline" size="xl">
-                  Ver Cursos
+                  Como Pagar
                 </Button>
               </Link>
             </div>
@@ -142,10 +142,10 @@ function CoursesSection() {
 
 function HowItWorksSection() {
   const steps = [
-    { number: "01", title: "Registe-se", description: "Crie a sua conta na plataforma" },
+    { number: "01", title: "Inscreva-se", description: "Escolha o curso e envie o seu nome e NIF" },
     { number: "02", title: "Pague", description: "Faça o pagamento via Multicaixa Express para 930 850 071" },
-    { number: "03", title: "Envie Comprovativo", description: "Envie o comprovativo para o WhatsApp 930 850 071" },
-    { number: "04", title: "Acesse", description: "Após aprovação, acesse todos os conteúdos e provas" },
+    { number: "03", title: "Envie Comprovativo", description: "Envie o comprovativo + NIF para o WhatsApp 930 850 071" },
+    { number: "04", title: "Receba Credenciais", description: "Após validação, enviamos as suas credenciais de acesso" },
   ];
 
   return (
@@ -190,9 +190,9 @@ function CTASection() {
           Junte-se a centenas de alunos e invista no seu futuro profissional.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Link to="/register">
+          <Link to="/courses">
             <Button variant="gold" size="xl">
-              Registar Agora
+              Inscrever-se Agora
             </Button>
           </Link>
           <a href="https://wa.me/244930850071" target="_blank" rel="noopener noreferrer">

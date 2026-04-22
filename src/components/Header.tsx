@@ -45,7 +45,7 @@ export function Header() {
             <Button variant="ghost" size="sm">Entrar</Button>
           </Link>
           <Link to="/register">
-            <Button variant="gold" size="sm">Registar</Button>
+            <Button variant="gold" size="sm">Inscrever-se</Button>
           </Link>
         </div>
 
@@ -77,7 +77,7 @@ export function Header() {
                 <Button variant="outline" className="w-full">Entrar</Button>
               </Link>
               <Link to="/register" onClick={() => setMobileOpen(false)}>
-                <Button variant="gold" className="w-full">Registar</Button>
+                <Button variant="gold" className="w-full">Inscrever-se</Button>
               </Link>
             </div>
           </nav>
