@@ -67,12 +67,14 @@ function PaymentPage() {
         </div>
 
         <div className="mt-10 rounded-xl border border-gold/30 bg-gold/5 p-6 text-center">
-          <p className="font-semibold text-foreground">Ainda não tem conta?</p>
-          <p className="mt-1 text-sm text-muted-foreground">Registe-se primeiro e depois efectue o pagamento.</p>
+          <p className="font-semibold text-foreground">Ainda não se inscreveu?</p>
+          <p className="mt-1 text-sm text-muted-foreground">
+            Escolha um curso e preencha o formulário de inscrição (Nome + NIF). As credenciais serão geradas e enviadas após validarmos o pagamento.
+          </p>
           <div className="mt-4 flex flex-wrap justify-center gap-3">
-            <Link to="/register">
+            <Link to="/courses">
               <Button variant="gold">
-                Registar
+                Ver Cursos
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
