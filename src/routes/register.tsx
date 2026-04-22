@@ -100,7 +100,7 @@ function EnrollmentPage() {
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a
                 href={`https://wa.me/244930850071?text=${encodeURIComponent(
-                  `Olá! Acabei de me inscrever na Alini Academy.\nNome: ${fullName}\nNIF: ${nif}${selectedCourse ? `\nCurso: ${selectedCourse.title}` : ""}\nEnvio em anexo o comprovativo de pagamento.`,
+                  `Olá! Acabei de me inscrever na Alini Academy.\nNome: ${fullName}\nEmail: ${email}\nNIF: ${nif}${selectedCourse ? `\nCurso: ${selectedCourse.title}` : ""}\nEnvio em anexo o comprovativo de pagamento.`,
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
