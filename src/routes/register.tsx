@@ -48,6 +48,7 @@ function EnrollmentPage() {
   const { course: preselected } = Route.useSearch();
 
   const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
   const [nif, setNif] = useState("");
   const [courseId, setCourseId] = useState(preselected ?? "");
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -55,7 +56,7 @@ function EnrollmentPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const result = enrollmentSchema.safeParse({ fullName, nif, courseId });
+    const result = enrollmentSchema.safeParse({ fullName, email, nif, courseId });
     if (!result.success) {
       const map: Record<string, string> = {};
       for (const issue of result.error.issues) {
