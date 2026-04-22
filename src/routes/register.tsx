@@ -4,11 +4,12 @@ import { GraduationCap, Eye, EyeOff } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import aliniLogo from "@/assets/alini-logo.png";
 
 export const Route = createFileRoute("/register")({
   head: () => ({
     meta: [
-      { title: "Registar - Acaj Academy" },
+      { title: "Registar - Alini Academy" },
     ],
   }),
   component: RegisterPage,
@@ -22,11 +23,11 @@ function RegisterPage() {
       {/* Left panel */}
       <div className="hidden w-1/2 gradient-hero items-center justify-center lg:flex">
         <div className="max-w-md px-12 text-center">
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gold">
-            <GraduationCap className="h-8 w-8 text-gold-foreground" />
+          <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-2xl bg-white p-3">
+            <img src={aliniLogo} alt="Alini Academy" className="h-full w-full object-contain" />
           </div>
           <h2 className="mt-6 font-display text-3xl font-bold text-primary-foreground">
-            Junte-se à Acaj Academy
+            Junte-se à Alini Academy
           </h2>
           <p className="mt-3 text-primary-foreground/70">
             Crie a sua conta e comece a aprender hoje mesmo.
@@ -38,10 +39,8 @@ function RegisterPage() {
       <div className="flex w-full items-center justify-center px-4 lg:w-1/2">
         <div className="w-full max-w-sm">
           <Link to="/" className="mb-8 flex items-center gap-2 lg:hidden">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
-              <GraduationCap className="h-4 w-4 text-primary-foreground" />
-            </div>
-            <span className="font-display text-lg font-bold">Acaj Academy</span>
+            <img src={aliniLogo} alt="Alini Academy" className="h-9 w-auto" />
+            <span className="font-display text-lg font-bold">Alini Academy</span>
           </Link>
 
           <h1 className="font-display text-2xl font-bold text-foreground">Criar Conta</h1>

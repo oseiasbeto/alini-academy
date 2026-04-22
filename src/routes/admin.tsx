@@ -7,7 +7,7 @@ import type { Student } from "@/lib/mock-data";
 
 export const Route = createFileRoute("/admin")({
   head: () => ({
-    meta: [{ title: "Painel Admin - Acaj Academy" }],
+    meta: [{ title: "Painel Admin - Alini Academy" }],
   }),
   component: AdminPage,
 });

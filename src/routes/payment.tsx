@@ -7,8 +7,8 @@ import { Footer } from "@/components/Footer";
 export const Route = createFileRoute("/payment")({
   head: () => ({
     meta: [
-      { title: "Como Pagar - Acaj Academy" },
-      { name: "description", content: "Instruções de pagamento via Multicaixa Express para acesso à Acaj Academy." },
+      { title: "Como Pagar - Alini Academy" },
+      { name: "description", content: "Instruções de pagamento via Multicaixa Express para acesso à Alini Academy." },
     ],
   }),
   component: PaymentPage,
