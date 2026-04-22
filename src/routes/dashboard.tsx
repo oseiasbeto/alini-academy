@@ -1,5 +1,6 @@
 import { createFileRoute, Link, Outlet, useLocation } from "@tanstack/react-router";
-import { GraduationCap, BookOpen, FileText, ClipboardCheck, BarChart3, LogOut } from "lucide-react";
+import { BookOpen, FileText, ClipboardCheck, BarChart3, LogOut } from "lucide-react";
+import aliniLogo from "@/assets/alini-logo.png";
 
 export const Route = createFileRoute("/dashboard")({
   component: DashboardLayout,
@@ -20,8 +21,8 @@ function DashboardLayout() {
       {/* Sidebar */}
       <aside className="hidden w-64 flex-col border-r border-border bg-navy lg:flex">
         <div className="flex h-16 items-center gap-2.5 px-6">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold">
-            <GraduationCap className="h-4 w-4 text-gold-foreground" />
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white p-1">
+            <img src={aliniLogo} alt="Alini Academy" className="h-full w-full object-contain" />
           </div>
           <span className="font-display text-lg font-bold text-navy-foreground">Alini Academy</span>
         </div>
@@ -61,9 +62,7 @@ function DashboardLayout() {
       <div className="flex flex-1 flex-col">
         <header className="flex h-14 items-center gap-4 border-b border-border bg-card px-4 lg:hidden">
           <Link to="/" className="flex items-center gap-2">
-            <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary">
-              <GraduationCap className="h-3.5 w-3.5 text-primary-foreground" />
-            </div>
+            <img src={aliniLogo} alt="Alini Academy" className="h-8 w-auto" />
             <span className="font-display text-sm font-bold">Alini Academy</span>
           </Link>
         </header>

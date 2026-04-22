@@ -1,7 +1,8 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X, GraduationCap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import aliniLogo from "@/assets/alini-logo.png";
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -18,10 +19,8 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link to="/" className="flex items-center gap-2.5">
-          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-            <GraduationCap className="h-5 w-5 text-primary-foreground" />
-          </div>
-          <span className="font-display text-xl font-bold text-foreground">
+          <img src={aliniLogo} alt="Alini Academy" className="h-10 w-auto" />
+          <span className="font-display text-xl font-bold text-foreground sm:inline">
             Alini <span className="text-primary">Academy</span>
           </span>
         </Link>

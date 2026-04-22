@@ -1,5 +1,5 @@
-import { GraduationCap } from "lucide-react";
 import { Link } from "@tanstack/react-router";
+import aliniLogo from "@/assets/alini-logo.png";
 
 export function Footer() {
   return (
@@ -8,8 +8,8 @@ export function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold">
-                <GraduationCap className="h-4 w-4 text-gold-foreground" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white p-1">
+                <img src={aliniLogo} alt="Alini Academy" className="h-full w-full object-contain" />
               </div>
               <span className="font-display text-lg font-bold">Alini Academy</span>
             </div>
