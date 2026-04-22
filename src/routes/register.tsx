@@ -16,6 +16,11 @@ const enrollmentSchema = z.object({
     .trim()
     .min(3, "O nome deve ter pelo menos 3 caracteres")
     .max(120, "Nome demasiado longo"),
+  email: z
+    .string()
+    .trim()
+    .email("Email inválido")
+    .max(255, "Email demasiado longo"),
   nif: z
     .string()
     .trim()
