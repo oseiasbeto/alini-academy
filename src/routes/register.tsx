@@ -32,7 +32,7 @@ export const Route = createFileRoute("/register")({
       { name: "description", content: "Inscreva-se num curso da Alini Academy. Após validação do pagamento, receberá as suas credenciais de acesso." },
     ],
   }),
-  validateSearch: (search: Record<string, unknown>) => ({
+  validateSearch: (search: Record<string, unknown>): { course?: string } => ({
     course: typeof search.course === "string" ? search.course : undefined,
   }),
   component: EnrollmentPage,
