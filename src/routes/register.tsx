@@ -16,6 +16,11 @@ const enrollmentSchema = z.object({
     .trim()
     .min(3, "O nome deve ter pelo menos 3 caracteres")
     .max(120, "Nome demasiado longo"),
+  email: z
+    .string()
+    .trim()
+    .email("Email inválido")
+    .max(255, "Email demasiado longo"),
   nif: z
     .string()
     .trim()
@@ -43,6 +48,7 @@ function EnrollmentPage() {
   const { course: preselected } = Route.useSearch();
 
   const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
   const [nif, setNif] = useState("");
   const [courseId, setCourseId] = useState(preselected ?? "");
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -50,7 +56,7 @@ function EnrollmentPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const result = enrollmentSchema.safeParse({ fullName, nif, courseId });
+    const result = enrollmentSchema.safeParse({ fullName, email, nif, courseId });
     if (!result.success) {
       const map: Record<string, string> = {};
       for (const issue of result.error.issues) {
@@ -94,7 +100,7 @@ function EnrollmentPage() {
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a
                 href={`https://wa.me/244930850071?text=${encodeURIComponent(
-                  `Olá! Acabei de me inscrever na Alini Academy.\nNome: ${fullName}\nNIF: ${nif}${selectedCourse ? `\nCurso: ${selectedCourse.title}` : ""}\nEnvio em anexo o comprovativo de pagamento.`,
+                  `Olá! Acabei de me inscrever na Alini Academy.\nNome: ${fullName}\nEmail: ${email}\nNIF: ${nif}${selectedCourse ? `\nCurso: ${selectedCourse.title}` : ""}\nEnvio em anexo o comprovativo de pagamento.`,
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -142,6 +148,19 @@ function EnrollmentPage() {
               maxLength={120}
             />
             {errors.fullName && <p className="text-xs text-destructive">{errors.fullName}</p>}
+          </div>
+
+          <div className="space-y-1.5">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="seu@email.com"
+              maxLength={255}
+            />
+            {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
           </div>
 
           <div className="space-y-1.5">

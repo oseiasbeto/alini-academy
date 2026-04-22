@@ -45,18 +45,18 @@ function LoginPage() {
 
           <h1 className="font-display text-2xl font-bold text-foreground">Entrar</h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            Introduza as suas credenciais para aceder à plataforma.
+            Introduza o seu Nº de Aluno e a senha enviadas por nós após a validação do pagamento.
           </p>
 
           <form className="mt-8 space-y-4" onSubmit={(e) => e.preventDefault()}>
             <div className="space-y-1.5">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="seu@email.com" />
+              <Label htmlFor="studentId">Nº de Aluno</Label>
+              <Input id="studentId" type="text" placeholder="Ex: ALN-2026-0001" autoComplete="username" />
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="password">Senha</Label>
               <div className="relative">
-                <Input id="password" type={showPw ? "text" : "password"} placeholder="••••••••" />
+                <Input id="password" type={showPw ? "text" : "password"} placeholder="••••••••" autoComplete="current-password" />
                 <button
                   type="button"
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
@@ -74,9 +74,9 @@ function LoginPage() {
           </form>
 
           <p className="mt-6 text-center text-sm text-muted-foreground">
-            Não tem conta?{" "}
+            Ainda não está inscrito?{" "}
             <Link to="/register" className="font-semibold text-primary hover:underline">
-              Registar
+              Inscrever-se
             </Link>
           </p>
         </div>
