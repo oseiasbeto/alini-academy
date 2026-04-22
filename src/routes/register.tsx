@@ -151,6 +151,19 @@ function EnrollmentPage() {
           </div>
 
           <div className="space-y-1.5">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="seu@email.com"
+              maxLength={255}
+            />
+            {errors.email && <p className="text-xs text-destructive">{errors.email}</p>}
+          </div>
+
+          <div className="space-y-1.5">
             <Label htmlFor="nif">NIF</Label>
             <Input
               id="nif"
