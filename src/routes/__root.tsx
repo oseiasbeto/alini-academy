@@ -29,9 +29,9 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Acaj Academy - Centro de Ensino Online" },
-      { name: "description", content: "Plataforma de ensino online com cursos profissionais. Aprenda no seu ritmo com a Acaj Academy." },
-      { property: "og:title", content: "Acaj Academy - Centro de Ensino Online" },
+      { title: "Alini Academy - Centro de Ensino Online" },
+      { name: "description", content: "Plataforma de ensino online com cursos profissionais. Aprenda no seu ritmo com a Alini Academy." },
+      { property: "og:title", content: "Alini Academy - Centro de Ensino Online" },
       { property: "og:description", content: "Plataforma de ensino online com cursos profissionais." },
       { property: "og:type", content: "website" },
     ],

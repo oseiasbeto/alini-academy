@@ -23,7 +23,7 @@ function DashboardLayout() {
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold">
             <GraduationCap className="h-4 w-4 text-gold-foreground" />
           </div>
-          <span className="font-display text-lg font-bold text-navy-foreground">Acaj Academy</span>
+          <span className="font-display text-lg font-bold text-navy-foreground">Alini Academy</span>
         </div>
         <nav className="flex-1 px-3 py-4 space-y-1">
           {navItems.map((item) => {
@@ -64,7 +64,7 @@ function DashboardLayout() {
             <div className="flex h-7 w-7 items-center justify-center rounded-md bg-primary">
               <GraduationCap className="h-3.5 w-3.5 text-primary-foreground" />
             </div>
-            <span className="font-display text-sm font-bold">Acaj Academy</span>
+            <span className="font-display text-sm font-bold">Alini Academy</span>
           </Link>
         </header>
 

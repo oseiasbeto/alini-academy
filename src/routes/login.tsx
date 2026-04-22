@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Entrar - Acaj Academy" },
+      { title: "Entrar - Alini Academy" },
     ],
   }),
   component: LoginPage,
@@ -29,7 +29,7 @@ function LoginPage() {
             Bem-vindo de volta
           </h2>
           <p className="mt-3 text-primary-foreground/70">
-            Acesse os seus cursos, materiais e provas na Acaj Academy.
+            Acesse os seus cursos, materiais e provas na Alini Academy.
           </p>
         </div>
       </div>
@@ -41,7 +41,7 @@ function LoginPage() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
               <GraduationCap className="h-4 w-4 text-primary-foreground" />
             </div>
-            <span className="font-display text-lg font-bold">Acaj Academy</span>
+            <span className="font-display text-lg font-bold">Alini Academy</span>
           </Link>
 
           <h1 className="font-display text-2xl font-bold text-foreground">Entrar</h1>

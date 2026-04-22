@@ -11,7 +11,7 @@ export function Footer() {
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gold">
                 <GraduationCap className="h-4 w-4 text-gold-foreground" />
               </div>
-              <span className="font-display text-lg font-bold">Acaj Academy</span>
+              <span className="font-display text-lg font-bold">Alini Academy</span>
             </div>
             <p className="mt-3 text-sm text-navy-foreground/70">
               Centro de ensino online de excelência. Formação profissional acessível para todos.
@@ -29,7 +29,7 @@ export function Footer() {
             <h4 className="font-semibold text-gold">Contacto</h4>
             <ul className="mt-3 space-y-2 text-sm text-navy-foreground/70">
               <li>WhatsApp: 930 850 071</li>
-              <li>Email: info@acajacademy.com</li>
+              <li>Email: info@aliniacademy.com</li>
             </ul>
           </div>
           <div>
@@ -40,7 +40,7 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-10 border-t border-navy-foreground/10 pt-6 text-center text-xs text-navy-foreground/50">
-          © {new Date().getFullYear()} Acaj Academy. Todos os direitos reservados.
+          © {new Date().getFullYear()} Alini Academy. Todos os direitos reservados.
         </div>
       </div>
     </footer>

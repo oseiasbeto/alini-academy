@@ -10,7 +10,7 @@ import { courses } from "@/lib/mock-data";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Acaj Academy - Centro de Ensino Online" },
+      { title: "Alini Academy - Centro de Ensino Online" },
       { name: "description", content: "Formação profissional acessível. Cursos online com certificação, provas e materiais em PDF." },
     ],
   }),
@@ -48,7 +48,7 @@ function HeroSection() {
             </span>
             <h1 className="mt-5 font-display text-4xl font-extrabold leading-tight text-primary-foreground sm:text-5xl lg:text-6xl">
               Transforme o seu futuro com a{" "}
-              <span className="text-gold">Acaj Academy</span>
+              <span className="text-gold">Alini Academy</span>
             </h1>
             <p className="mt-5 text-lg text-primary-foreground/80 sm:text-xl">
               Cursos profissionais online com certificação, materiais em PDF, provas e

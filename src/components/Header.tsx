@@ -22,7 +22,7 @@ export function Header() {
             <GraduationCap className="h-5 w-5 text-primary-foreground" />
           </div>
           <span className="font-display text-xl font-bold text-foreground">
-            Acaj <span className="text-primary">Academy</span>
+            Alini <span className="text-primary">Academy</span>
           </span>
         </Link>
 

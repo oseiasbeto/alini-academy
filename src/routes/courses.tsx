@@ -7,7 +7,7 @@ import { courses } from "@/lib/mock-data";
 export const Route = createFileRoute("/courses")({
   head: () => ({
     meta: [
-      { title: "Cursos - Acaj Academy" },
+      { title: "Cursos - Alini Academy" },
       { name: "description", content: "Descubra os nossos cursos profissionais online." },
     ],
   }),

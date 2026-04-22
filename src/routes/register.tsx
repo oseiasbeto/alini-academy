@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label";
 export const Route = createFileRoute("/register")({
   head: () => ({
     meta: [
-      { title: "Registar - Acaj Academy" },
+      { title: "Registar - Alini Academy" },
     ],
   }),
   component: RegisterPage,
@@ -26,7 +26,7 @@ function RegisterPage() {
             <GraduationCap className="h-8 w-8 text-gold-foreground" />
           </div>
           <h2 className="mt-6 font-display text-3xl font-bold text-primary-foreground">
-            Junte-se à Acaj Academy
+            Junte-se à Alini Academy
           </h2>
           <p className="mt-3 text-primary-foreground/70">
             Crie a sua conta e comece a aprender hoje mesmo.
@@ -41,7 +41,7 @@ function RegisterPage() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary">
               <GraduationCap className="h-4 w-4 text-primary-foreground" />
             </div>
-            <span className="font-display text-lg font-bold">Acaj Academy</span>
+            <span className="font-display text-lg font-bold">Alini Academy</span>
           </Link>
 
           <h1 className="font-display text-2xl font-bold text-foreground">Criar Conta</h1>
