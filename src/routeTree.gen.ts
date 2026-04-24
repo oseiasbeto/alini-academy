@@ -18,8 +18,10 @@ import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardResultsRouteImport } from './routes/dashboard.results'
-import { Route as DashboardMaterialsRouteImport } from './routes/dashboard.materials'
+import { Route as DashboardPaymentsRouteImport } from './routes/dashboard.payments'
 import { Route as DashboardExamsRouteImport } from './routes/dashboard.exams'
+import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
+import { Route as DashboardCoursesCourseIdRouteImport } from './routes/dashboard.courses.$courseId'
 
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
@@ -66,9 +68,9 @@ const DashboardResultsRoute = DashboardResultsRouteImport.update({
   path: '/results',
   getParentRoute: () => DashboardRoute,
 } as any)
-const DashboardMaterialsRoute = DashboardMaterialsRouteImport.update({
-  id: '/materials',
-  path: '/materials',
+const DashboardPaymentsRoute = DashboardPaymentsRouteImport.update({
+  id: '/payments',
+  path: '/payments',
   getParentRoute: () => DashboardRoute,
 } as any)
 const DashboardExamsRoute = DashboardExamsRouteImport.update({
@@ -76,45 +78,62 @@ const DashboardExamsRoute = DashboardExamsRouteImport.update({
   path: '/exams',
   getParentRoute: () => DashboardRoute,
 } as any)
+const CoursesCourseIdRoute = CoursesCourseIdRouteImport.update({
+  id: '/$courseId',
+  path: '/$courseId',
+  getParentRoute: () => CoursesRoute,
+} as any)
+const DashboardCoursesCourseIdRoute =
+  DashboardCoursesCourseIdRouteImport.update({
+    id: '/courses/$courseId',
+    path: '/courses/$courseId',
+    getParentRoute: () => DashboardRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
-  '/courses': typeof CoursesRoute
+  '/courses': typeof CoursesRouteWithChildren
   '/dashboard': typeof DashboardRouteWithChildren
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
   '/register': typeof RegisterRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
   '/dashboard/exams': typeof DashboardExamsRoute
-  '/dashboard/materials': typeof DashboardMaterialsRoute
+  '/dashboard/payments': typeof DashboardPaymentsRoute
   '/dashboard/results': typeof DashboardResultsRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/dashboard/courses/$courseId': typeof DashboardCoursesCourseIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
-  '/courses': typeof CoursesRoute
+  '/courses': typeof CoursesRouteWithChildren
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
   '/register': typeof RegisterRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
   '/dashboard/exams': typeof DashboardExamsRoute
-  '/dashboard/materials': typeof DashboardMaterialsRoute
+  '/dashboard/payments': typeof DashboardPaymentsRoute
   '/dashboard/results': typeof DashboardResultsRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/dashboard/courses/$courseId': typeof DashboardCoursesCourseIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
-  '/courses': typeof CoursesRoute
+  '/courses': typeof CoursesRouteWithChildren
   '/dashboard': typeof DashboardRouteWithChildren
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
   '/register': typeof RegisterRoute
+  '/courses/$courseId': typeof CoursesCourseIdRoute
   '/dashboard/exams': typeof DashboardExamsRoute
-  '/dashboard/materials': typeof DashboardMaterialsRoute
+  '/dashboard/payments': typeof DashboardPaymentsRoute
   '/dashboard/results': typeof DashboardResultsRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/dashboard/courses/$courseId': typeof DashboardCoursesCourseIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -126,10 +145,12 @@ export interface FileRouteTypes {
     | '/login'
     | '/payment'
     | '/register'
+    | '/courses/$courseId'
     | '/dashboard/exams'
-    | '/dashboard/materials'
+    | '/dashboard/payments'
     | '/dashboard/results'
     | '/dashboard/'
+    | '/dashboard/courses/$courseId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -138,10 +159,12 @@ export interface FileRouteTypes {
     | '/login'
     | '/payment'
     | '/register'
+    | '/courses/$courseId'
     | '/dashboard/exams'
-    | '/dashboard/materials'
+    | '/dashboard/payments'
     | '/dashboard/results'
     | '/dashboard'
+    | '/dashboard/courses/$courseId'
   id:
     | '__root__'
     | '/'
@@ -151,16 +174,18 @@ export interface FileRouteTypes {
     | '/login'
     | '/payment'
     | '/register'
+    | '/courses/$courseId'
     | '/dashboard/exams'
-    | '/dashboard/materials'
+    | '/dashboard/payments'
     | '/dashboard/results'
     | '/dashboard/'
+    | '/dashboard/courses/$courseId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRoute
-  CoursesRoute: typeof CoursesRoute
+  CoursesRoute: typeof CoursesRouteWithChildren
   DashboardRoute: typeof DashboardRouteWithChildren
   LoginRoute: typeof LoginRoute
   PaymentRoute: typeof PaymentRoute
@@ -232,11 +257,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardResultsRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/materials': {
-      id: '/dashboard/materials'
-      path: '/materials'
-      fullPath: '/dashboard/materials'
-      preLoaderRoute: typeof DashboardMaterialsRouteImport
+    '/dashboard/payments': {
+      id: '/dashboard/payments'
+      path: '/payments'
+      fullPath: '/dashboard/payments'
+      preLoaderRoute: typeof DashboardPaymentsRouteImport
       parentRoute: typeof DashboardRoute
     }
     '/dashboard/exams': {
@@ -246,21 +271,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardExamsRouteImport
       parentRoute: typeof DashboardRoute
     }
+    '/courses/$courseId': {
+      id: '/courses/$courseId'
+      path: '/$courseId'
+      fullPath: '/courses/$courseId'
+      preLoaderRoute: typeof CoursesCourseIdRouteImport
+      parentRoute: typeof CoursesRoute
+    }
+    '/dashboard/courses/$courseId': {
+      id: '/dashboard/courses/$courseId'
+      path: '/courses/$courseId'
+      fullPath: '/dashboard/courses/$courseId'
+      preLoaderRoute: typeof DashboardCoursesCourseIdRouteImport
+      parentRoute: typeof DashboardRoute
+    }
   }
 }
 
+interface CoursesRouteChildren {
+  CoursesCourseIdRoute: typeof CoursesCourseIdRoute
+}
+
+const CoursesRouteChildren: CoursesRouteChildren = {
+  CoursesCourseIdRoute: CoursesCourseIdRoute,
+}
+
+const CoursesRouteWithChildren =
+  CoursesRoute._addFileChildren(CoursesRouteChildren)
+
 interface DashboardRouteChildren {
   DashboardExamsRoute: typeof DashboardExamsRoute
-  DashboardMaterialsRoute: typeof DashboardMaterialsRoute
+  DashboardPaymentsRoute: typeof DashboardPaymentsRoute
   DashboardResultsRoute: typeof DashboardResultsRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
+  DashboardCoursesCourseIdRoute: typeof DashboardCoursesCourseIdRoute
 }
 
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardExamsRoute: DashboardExamsRoute,
-  DashboardMaterialsRoute: DashboardMaterialsRoute,
+  DashboardPaymentsRoute: DashboardPaymentsRoute,
   DashboardResultsRoute: DashboardResultsRoute,
   DashboardIndexRoute: DashboardIndexRoute,
+  DashboardCoursesCourseIdRoute: DashboardCoursesCourseIdRoute,
 }
 
 const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
@@ -270,7 +322,7 @@ const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
-  CoursesRoute: CoursesRoute,
+  CoursesRoute: CoursesRouteWithChildren,
   DashboardRoute: DashboardRouteWithChildren,
   LoginRoute: LoginRoute,
   PaymentRoute: PaymentRoute,

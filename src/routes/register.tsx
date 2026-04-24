@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { courses } from "@/lib/mock-data";
+import { formatKz } from "@/lib/utils";
 import aliniLogo from "@/assets/alini-logo.png";
 
 const enrollmentSchema = z.object({
@@ -92,14 +93,14 @@ function EnrollmentPage() {
               <p className="font-semibold text-foreground">Próximos passos:</p>
               <ol className="mt-3 space-y-2 text-sm text-muted-foreground list-decimal list-inside">
                 <li>Efectue o pagamento via <strong className="text-foreground">Multicaixa Express</strong> para o número <strong className="text-primary">930 850 071</strong>.</li>
-                <li>Envie o comprovativo + o seu NIF (<strong className="text-foreground">{nif}</strong>) para o WhatsApp <strong className="text-primary">930 850 071</strong>.</li>
-                <li>Após validação, enviaremos as suas <strong className="text-foreground">credenciais de acesso</strong> por WhatsApp.</li>
+                <li>Envie o comprovativo + o seu NIF (<strong className="text-foreground">{nif}</strong>) para o nosso WhatsApp <strong className="text-primary">940 070 279</strong>.</li>
+                <li>Após validação, enviaremos as suas <strong className="text-foreground">credenciais de acesso</strong> (Nº de Aluno e senha) por WhatsApp.</li>
               </ol>
             </div>
 
             <div className="mt-6 flex flex-wrap justify-center gap-3">
               <a
-                href={`https://wa.me/244930850071?text=${encodeURIComponent(
+                href={`https://wa.me/244940070279?text=${encodeURIComponent(
                   `Olá! Acabei de me inscrever na Alini Academy.\nNome: ${fullName}\nEmail: ${email}\nNIF: ${nif}${selectedCourse ? `\nCurso: ${selectedCourse.title}` : ""}\nEnvio em anexo o comprovativo de pagamento.`,
                 )}`}
                 target="_blank"
@@ -191,6 +192,20 @@ function EnrollmentPage() {
               ))}
             </select>
             {errors.courseId && <p className="text-xs text-destructive">{errors.courseId}</p>}
+            {selectedCourse && (
+              <div className="mt-2 flex items-center justify-between rounded-lg bg-muted/50 px-3 py-2">
+                <div>
+                  <p className="text-[10px] uppercase tracking-wide text-muted-foreground">Inscrição</p>
+                  <p className="font-display text-base font-bold text-primary">{formatKz(selectedCourse.price)}</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-[10px] uppercase tracking-wide text-muted-foreground">Mensalidade</p>
+                  <p className="text-sm font-semibold text-foreground">
+                    {formatKz(selectedCourse.monthlyFee)} × {selectedCourse.months} meses
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
 
           <Button type="submit" variant="gold" size="lg" className="w-full">
