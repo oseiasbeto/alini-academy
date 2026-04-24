@@ -1,5 +1,5 @@
 import { createFileRoute, Link, Outlet, useLocation } from "@tanstack/react-router";
-import { BookOpen, Wallet, ClipboardCheck, BarChart3, LogOut } from "lucide-react";
+import { BookOpen, ClipboardCheck, BarChart3, LogOut } from "lucide-react";
 import aliniLogo from "@/assets/alini-logo.png";
 
 export const Route = createFileRoute("/dashboard")({
@@ -8,10 +8,9 @@ export const Route = createFileRoute("/dashboard")({
 
 const navItems = [
   { to: "/dashboard", label: "Meus Cursos", icon: BookOpen, exact: true },
-  { to: "/dashboard/payments", label: "Mensalidades", icon: Wallet },
   { to: "/dashboard/exams", label: "Provas", icon: ClipboardCheck },
   { to: "/dashboard/results", label: "Resultados", icon: BarChart3 },
-];
+] as const;
 
 function DashboardLayout() {
   const location = useLocation();

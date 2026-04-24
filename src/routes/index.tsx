@@ -144,7 +144,7 @@ function HowItWorksSection() {
   const steps = [
     { number: "01", title: "Inscreva-se", description: "Escolha o curso e envie o seu nome e NIF" },
     { number: "02", title: "Pague", description: "Faça o pagamento via Multicaixa Express para 930 850 071" },
-    { number: "03", title: "Envie Comprovativo", description: "Envie o comprovativo + NIF para o WhatsApp 930 850 071" },
+    { number: "03", title: "Envie Comprovativo", description: "Envie o comprovativo + NIF para o WhatsApp 940 070 279" },
     { number: "04", title: "Receba Credenciais", description: "Após validação, enviamos as suas credenciais de acesso" },
   ];
 
@@ -195,7 +195,7 @@ function CTASection() {
               Inscrever-se Agora
             </Button>
           </Link>
-          <a href="https://wa.me/244930850071" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/244940070279" target="_blank" rel="noopener noreferrer">
             <Button variant="hero-outline" size="xl">
               <MessageCircle className="h-5 w-5" />
               WhatsApp
