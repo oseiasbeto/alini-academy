@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { BookOpen, Clock, CheckCircle } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { BookOpen, Clock, CheckCircle, ChevronRight } from "lucide-react";
 import { courses } from "@/lib/mock-data";
 import { Progress } from "@/components/ui/progress";
 
@@ -41,23 +41,36 @@ function DashboardHome() {
       </div>
 
       <h2 className="mt-10 font-display text-lg font-semibold text-foreground">Cursos em Andamento</h2>
+      <p className="mt-1 text-xs text-muted-foreground">
+        Clique num curso para ver os materiais PDF.
+      </p>
       <div className="mt-4 space-y-4">
         {enrolled.map((course, i) => (
-          <div key={course.id} className="flex gap-4 rounded-xl border border-border bg-card p-4 shadow-card">
+          <Link
+            key={course.id}
+            to="/dashboard/courses/$courseId"
+            params={{ courseId: course.id }}
+            className="group flex gap-4 rounded-xl border border-border bg-card p-4 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-0.5"
+          >
             <img
               src={course.image}
               alt={course.title}
               className="h-20 w-28 rounded-lg object-cover"
             />
-            <div className="flex-1">
-              <h3 className="font-semibold text-card-foreground">{course.title}</h3>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-start justify-between gap-2">
+                <h3 className="font-semibold text-card-foreground group-hover:text-primary transition-colors">
+                  {course.title}
+                </h3>
+                <ChevronRight className="h-4 w-4 shrink-0 text-muted-foreground group-hover:text-primary transition-colors" />
+              </div>
               <p className="mt-0.5 text-xs text-muted-foreground">{course.modules} módulos · {course.duration}</p>
               <div className="mt-3 flex items-center gap-3">
                 <Progress value={progress[i]} className="h-2 flex-1" />
                 <span className="text-xs font-medium text-muted-foreground">{progress[i]}%</span>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

@@ -19,7 +19,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
 import { Route as DashboardResultsRouteImport } from './routes/dashboard.results'
 import { Route as DashboardPaymentsRouteImport } from './routes/dashboard.payments'
-import { Route as DashboardMaterialsRouteImport } from './routes/dashboard.materials'
 import { Route as DashboardExamsRouteImport } from './routes/dashboard.exams'
 import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
 import { Route as DashboardCoursesCourseIdRouteImport } from './routes/dashboard.courses.$courseId'
@@ -74,11 +73,6 @@ const DashboardPaymentsRoute = DashboardPaymentsRouteImport.update({
   path: '/payments',
   getParentRoute: () => DashboardRoute,
 } as any)
-const DashboardMaterialsRoute = DashboardMaterialsRouteImport.update({
-  id: '/materials',
-  path: '/materials',
-  getParentRoute: () => DashboardRoute,
-} as any)
 const DashboardExamsRoute = DashboardExamsRouteImport.update({
   id: '/exams',
   path: '/exams',
@@ -106,7 +100,6 @@ export interface FileRoutesByFullPath {
   '/register': typeof RegisterRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
   '/dashboard/exams': typeof DashboardExamsRoute
-  '/dashboard/materials': typeof DashboardMaterialsRoute
   '/dashboard/payments': typeof DashboardPaymentsRoute
   '/dashboard/results': typeof DashboardResultsRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -121,7 +114,6 @@ export interface FileRoutesByTo {
   '/register': typeof RegisterRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
   '/dashboard/exams': typeof DashboardExamsRoute
-  '/dashboard/materials': typeof DashboardMaterialsRoute
   '/dashboard/payments': typeof DashboardPaymentsRoute
   '/dashboard/results': typeof DashboardResultsRoute
   '/dashboard': typeof DashboardIndexRoute
@@ -138,7 +130,6 @@ export interface FileRoutesById {
   '/register': typeof RegisterRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
   '/dashboard/exams': typeof DashboardExamsRoute
-  '/dashboard/materials': typeof DashboardMaterialsRoute
   '/dashboard/payments': typeof DashboardPaymentsRoute
   '/dashboard/results': typeof DashboardResultsRoute
   '/dashboard/': typeof DashboardIndexRoute
@@ -156,7 +147,6 @@ export interface FileRouteTypes {
     | '/register'
     | '/courses/$courseId'
     | '/dashboard/exams'
-    | '/dashboard/materials'
     | '/dashboard/payments'
     | '/dashboard/results'
     | '/dashboard/'
@@ -171,7 +161,6 @@ export interface FileRouteTypes {
     | '/register'
     | '/courses/$courseId'
     | '/dashboard/exams'
-    | '/dashboard/materials'
     | '/dashboard/payments'
     | '/dashboard/results'
     | '/dashboard'
@@ -187,7 +176,6 @@ export interface FileRouteTypes {
     | '/register'
     | '/courses/$courseId'
     | '/dashboard/exams'
-    | '/dashboard/materials'
     | '/dashboard/payments'
     | '/dashboard/results'
     | '/dashboard/'
@@ -276,13 +264,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardPaymentsRouteImport
       parentRoute: typeof DashboardRoute
     }
-    '/dashboard/materials': {
-      id: '/dashboard/materials'
-      path: '/materials'
-      fullPath: '/dashboard/materials'
-      preLoaderRoute: typeof DashboardMaterialsRouteImport
-      parentRoute: typeof DashboardRoute
-    }
     '/dashboard/exams': {
       id: '/dashboard/exams'
       path: '/exams'
@@ -320,7 +301,6 @@ const CoursesRouteWithChildren =
 
 interface DashboardRouteChildren {
   DashboardExamsRoute: typeof DashboardExamsRoute
-  DashboardMaterialsRoute: typeof DashboardMaterialsRoute
   DashboardPaymentsRoute: typeof DashboardPaymentsRoute
   DashboardResultsRoute: typeof DashboardResultsRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
@@ -329,7 +309,6 @@ interface DashboardRouteChildren {
 
 const DashboardRouteChildren: DashboardRouteChildren = {
   DashboardExamsRoute: DashboardExamsRoute,
-  DashboardMaterialsRoute: DashboardMaterialsRoute,
   DashboardPaymentsRoute: DashboardPaymentsRoute,
   DashboardResultsRoute: DashboardResultsRoute,
   DashboardIndexRoute: DashboardIndexRoute,
