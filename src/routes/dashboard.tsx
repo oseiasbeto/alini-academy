@@ -8,8 +8,8 @@ export const Route = createFileRoute("/dashboard")({
 
 const navItems = [
   { to: "/dashboard", label: "Meus Cursos", icon: BookOpen, exact: true },
-  { to: "/dashboard/exams", label: "Provas", icon: ClipboardCheck },
-  { to: "/dashboard/results", label: "Resultados", icon: BarChart3 },
+  { to: "/dashboard/exams", label: "Provas", icon: ClipboardCheck, exact: false },
+  { to: "/dashboard/results", label: "Resultados", icon: BarChart3, exact: false },
 ] as const;
 
 function DashboardLayout() {

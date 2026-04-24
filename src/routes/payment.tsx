@@ -27,7 +27,7 @@ function PaymentPage() {
       step: 2,
       title: "Envie o Comprovativo",
       description: "Envie uma captura de ecrã do comprovativo de pagamento para o WhatsApp:",
-      highlight: "930 850 071",
+      highlight: "940 070 279",
       icon: MessageCircle,
     },
     {
@@ -78,7 +78,7 @@ function PaymentPage() {
                 <ArrowRight className="h-4 w-4" />
               </Button>
             </Link>
-            <a href="https://wa.me/244930850071" target="_blank" rel="noopener noreferrer">
+            <a href="https://wa.me/244940070279" target="_blank" rel="noopener noreferrer">
               <Button variant="outline">
                 <MessageCircle className="h-4 w-4" />
                 WhatsApp
