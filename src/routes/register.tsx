@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { courses } from "@/lib/mock-data";
+import { formatKz } from "@/lib/utils";
 import aliniLogo from "@/assets/alini-logo.png";
 
 const enrollmentSchema = z.object({
