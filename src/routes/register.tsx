@@ -191,6 +191,20 @@ function EnrollmentPage() {
               ))}
             </select>
             {errors.courseId && <p className="text-xs text-destructive">{errors.courseId}</p>}
+            {selectedCourse && (
+              <div className="mt-2 flex items-center justify-between rounded-lg bg-muted/50 px-3 py-2">
+                <div>
+                  <p className="text-[10px] uppercase tracking-wide text-muted-foreground">Inscrição</p>
+                  <p className="font-display text-base font-bold text-primary">{formatKz(selectedCourse.price)}</p>
+                </div>
+                <div className="text-right">
+                  <p className="text-[10px] uppercase tracking-wide text-muted-foreground">Mensalidade</p>
+                  <p className="text-sm font-semibold text-foreground">
+                    {formatKz(selectedCourse.monthlyFee)} × {selectedCourse.months} meses
+                  </p>
+                </div>
+              </div>
+            )}
           </div>
 
           <Button type="submit" variant="gold" size="lg" className="w-full">
