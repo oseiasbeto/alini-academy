@@ -1,3 +1,10 @@
+export interface CoursePdf {
+  id: string;
+  title: string;
+  pages: number;
+  module: number;
+}
+
 export interface Course {
   id: string;
   title: string;
@@ -6,6 +13,16 @@ export interface Course {
   modules: number;
   image: string;
   category: string;
+  /** Preço total da inscrição em Kz */
+  price: number;
+  /** Mensalidade em Kz */
+  monthlyFee: number;
+  /** Duração do curso em meses (usado para mensalidades) */
+  months: number;
+  objectives: string[];
+  audience: string[];
+  syllabus: string[];
+  pdfs: CoursePdf[];
 }
 
 export interface Exam {
