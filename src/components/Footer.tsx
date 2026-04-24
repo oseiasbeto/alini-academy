@@ -28,7 +28,7 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-gold">Contacto</h4>
             <ul className="mt-3 space-y-2 text-sm text-navy-foreground/70">
-              <li>WhatsApp: 930 850 071</li>
+              <li>WhatsApp: 940 070 279</li>
               <li>Email: info@aliniacademy.com</li>
             </ul>
           </div>
