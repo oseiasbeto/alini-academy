@@ -13,10 +13,10 @@ import { Route as RegisterRouteImport } from './routes/register'
 import { Route as PaymentRouteImport } from './routes/payment'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as DashboardRouteImport } from './routes/dashboard'
-import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as AdminRouteImport } from './routes/admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard.index'
+import { Route as CoursesIndexRouteImport } from './routes/courses.index'
 import { Route as DashboardResultsRouteImport } from './routes/dashboard.results'
 import { Route as DashboardPaymentsRouteImport } from './routes/dashboard.payments'
 import { Route as DashboardExamsRouteImport } from './routes/dashboard.exams'
@@ -43,11 +43,6 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CoursesRoute = CoursesRouteImport.update({
-  id: '/courses',
-  path: '/courses',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AdminRoute = AdminRouteImport.update({
   id: '/admin',
   path: '/admin',
@@ -62,6 +57,11 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => DashboardRoute,
+} as any)
+const CoursesIndexRoute = CoursesIndexRouteImport.update({
+  id: '/courses/',
+  path: '/courses/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardResultsRoute = DashboardResultsRouteImport.update({
   id: '/results',
@@ -93,7 +93,6 @@ const DashboardCoursesCourseIdRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
-  '/courses': typeof CoursesRouteWithChildren
   '/dashboard': typeof DashboardRouteWithChildren
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
@@ -102,13 +101,13 @@ export interface FileRoutesByFullPath {
   '/dashboard/exams': typeof DashboardExamsRoute
   '/dashboard/payments': typeof DashboardPaymentsRoute
   '/dashboard/results': typeof DashboardResultsRoute
+  '/courses/': typeof CoursesIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/dashboard/courses/$courseId': typeof DashboardCoursesCourseIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
-  '/courses': typeof CoursesRouteWithChildren
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
   '/register': typeof RegisterRoute
@@ -116,6 +115,7 @@ export interface FileRoutesByTo {
   '/dashboard/exams': typeof DashboardExamsRoute
   '/dashboard/payments': typeof DashboardPaymentsRoute
   '/dashboard/results': typeof DashboardResultsRoute
+  '/courses': typeof CoursesIndexRoute
   '/dashboard': typeof DashboardIndexRoute
   '/dashboard/courses/$courseId': typeof DashboardCoursesCourseIdRoute
 }
@@ -123,7 +123,6 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/admin': typeof AdminRoute
-  '/courses': typeof CoursesRouteWithChildren
   '/dashboard': typeof DashboardRouteWithChildren
   '/login': typeof LoginRoute
   '/payment': typeof PaymentRoute
@@ -132,6 +131,7 @@ export interface FileRoutesById {
   '/dashboard/exams': typeof DashboardExamsRoute
   '/dashboard/payments': typeof DashboardPaymentsRoute
   '/dashboard/results': typeof DashboardResultsRoute
+  '/courses/': typeof CoursesIndexRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/dashboard/courses/$courseId': typeof DashboardCoursesCourseIdRoute
 }
@@ -140,7 +140,6 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/admin'
-    | '/courses'
     | '/dashboard'
     | '/login'
     | '/payment'
@@ -149,13 +148,13 @@ export interface FileRouteTypes {
     | '/dashboard/exams'
     | '/dashboard/payments'
     | '/dashboard/results'
+    | '/courses/'
     | '/dashboard/'
     | '/dashboard/courses/$courseId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/admin'
-    | '/courses'
     | '/login'
     | '/payment'
     | '/register'
@@ -163,13 +162,13 @@ export interface FileRouteTypes {
     | '/dashboard/exams'
     | '/dashboard/payments'
     | '/dashboard/results'
+    | '/courses'
     | '/dashboard'
     | '/dashboard/courses/$courseId'
   id:
     | '__root__'
     | '/'
     | '/admin'
-    | '/courses'
     | '/dashboard'
     | '/login'
     | '/payment'
@@ -178,6 +177,7 @@ export interface FileRouteTypes {
     | '/dashboard/exams'
     | '/dashboard/payments'
     | '/dashboard/results'
+    | '/courses/'
     | '/dashboard/'
     | '/dashboard/courses/$courseId'
   fileRoutesById: FileRoutesById
@@ -185,11 +185,11 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AdminRoute: typeof AdminRoute
-  CoursesRoute: typeof CoursesRouteWithChildren
   DashboardRoute: typeof DashboardRouteWithChildren
   LoginRoute: typeof LoginRoute
   PaymentRoute: typeof PaymentRoute
   RegisterRoute: typeof RegisterRoute
+  CoursesIndexRoute: typeof CoursesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -222,13 +222,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/courses': {
-      id: '/courses'
-      path: '/courses'
-      fullPath: '/courses'
-      preLoaderRoute: typeof CoursesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/admin': {
       id: '/admin'
       path: '/admin'
@@ -249,6 +242,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/dashboard/'
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof DashboardRoute
+    }
+    '/courses/': {
+      id: '/courses/'
+      path: '/courses'
+      fullPath: '/courses/'
+      preLoaderRoute: typeof CoursesIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/dashboard/results': {
       id: '/dashboard/results'
@@ -288,17 +288,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface CoursesRouteChildren {
-  CoursesCourseIdRoute: typeof CoursesCourseIdRoute
-}
-
-const CoursesRouteChildren: CoursesRouteChildren = {
-  CoursesCourseIdRoute: CoursesCourseIdRoute,
-}
-
-const CoursesRouteWithChildren =
-  CoursesRoute._addFileChildren(CoursesRouteChildren)
-
 interface DashboardRouteChildren {
   DashboardExamsRoute: typeof DashboardExamsRoute
   DashboardPaymentsRoute: typeof DashboardPaymentsRoute
@@ -322,11 +311,11 @@ const DashboardRouteWithChildren = DashboardRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRoute,
-  CoursesRoute: CoursesRouteWithChildren,
   DashboardRoute: DashboardRouteWithChildren,
   LoginRoute: LoginRoute,
   PaymentRoute: PaymentRoute,
   RegisterRoute: RegisterRoute,
+  CoursesIndexRoute: CoursesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
